@@ -4,6 +4,10 @@
   <meta charset="UTF-8"/>
   <title>Card Ganerator</title>
   <style>
+    body{
+      background:url("img/b1.png");
+      background-size: cover;
+    }
     #Icon {
       text-align: center;
       height: 40px;
@@ -58,15 +62,35 @@
       background-color: rgb(172, 116, 201);
       color: #fff;
       height: 50px;
-      width: 320px;
+      width: 150px;
       text-align: center;
       cursor: pointer;
       line-height: 50px;
       user-select: none;
     }
 
+    #cardDownload {
+      margin: 5px 0 0 0px;
+      box-shadow: inset 0px 0px 5px 5px #fff;
+      font-size: 25px;
+      background-color: rgb(116, 156, 201);
+      color: #fff;
+      height: 50px;
+      width: 150px;
+      text-align: center;
+      cursor: pointer;
+      line-height: 50px;
+      user-select: none;
+      margin: -50px 0 0 160px;
+    }
+
     #cardDisplay:hover {
       color: indigo;
+      box-shadow: inset 1px 1px 5px 5px #fff;
+    }
+
+    #cardDownload:hover {
+      color: rgb(0, 46, 130);
       box-shadow: inset 1px 1px 5px 5px #fff;
     }
 
@@ -103,12 +127,13 @@
     }
 
     .m3_l_card {
+      display:scroll;position:fixed;bottom:5px;right:5px;
       width: 400px;
       height: 580px;
       font-family: 標楷體;
-      position: absolute;
+      position:relative;
       user-select: none;
-      cursor: pointer;
+      
     }
 
     .m3_l_card_color {
@@ -189,10 +214,11 @@
 </head>
 
 <body>
+  
   <h2 id=Icon>By Violet</h2>
   <div id="main">
     <div id="main_1">Card Ganerator</div>
-    <div id="main_2">預覽後可以直接點擊卡片下載。</div>
+    <div id="main_2">預覽後可以點擊下載卡片。</div>
     <div id="m3">
 
       <div id="m3_l"></div>
@@ -264,6 +290,8 @@
           <input type="text" pattern="\d{8}" maxlength="8" id="card_def">
         </div>
         <div id="cardDisplay" onclick=data2html()>預覽卡片</div>
+        <div id="cardDownload" onclick=html2img()>下載卡片</div>
+      
       </div>
     </div>
     <canvas id="showimg" width="400" height="580"></canvas>
@@ -284,7 +312,7 @@
 
   function card_output(card_x) {  //把卡片資料輸出成HTML--怪獸卡
     var text = "";
-    text += "<div class='m3_l_card' onclick=html2img()>"
+    text += "<div class='m3_l_card'>"
     text += "<img class='m3_l_card_color' src='" + card_x.color + "'>";
     text += "<div class='m3_l_card_name'>" + card_x.name + "</div>";
     text += "<img class='m3_l_card_attr' src='" + card_x.attr + "'>";
