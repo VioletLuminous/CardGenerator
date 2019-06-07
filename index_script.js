@@ -116,7 +116,7 @@ function html2img() {  //把HTML轉換成canvas
 
 function download(x) {  //下載圖片
 
-    x.setAttribute("crossOrigin", 'Anonymous')setAttribute("crossOrigin", 'Anonymous')
+    x.setAttribute("crossOrigin", 'Anonymous');
     var anchor = document.createElement('a');
     document.body.appendChild(anchor);
 
